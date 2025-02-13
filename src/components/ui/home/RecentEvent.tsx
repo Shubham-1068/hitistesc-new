@@ -1,9 +1,14 @@
-import React, { FC } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { FaMapMarker } from "react-icons/fa";
 import { IoCalendarOutline } from "react-icons/io5";
 import { staggerContainer } from "@/utils/motion";
 import TypingText from "@/components/CustomTexts";
+
+const fadeInScale = {
+  hidden: { opacity: 0, scale: 0.9 },
+  show: { opacity: 1, scale: 1, transition: { duration: 0.6 } },
+};
 
 interface EventData {
   id: number;
@@ -16,23 +21,28 @@ interface EventData {
 const eventData: EventData[] = [
   {
     id: 1,
-    imageUrl:
-      "https://res.cloudinary.com/dqs4ncrqj/image/upload/v1716350127/p8y6nom6ez2zlfmdtlnh.jpg",
-    eventName: "Communicraft",
-    eventTiming: "17 April 2024",
-    eventLocation: "CS Deppt",
+    imageUrl: "https://res.cloudinary.com/dds4wowea/image/upload/v1739427669/ppf_jzxbvp.jpg",
+    eventName: "National Level Ideathon",
+    eventTiming: "Upcoming 10th - 11th April",
+    eventLocation: "SN Bose",
   },
   {
     id: 2,
-    eventName: "CodeVault",
-    eventTiming: "February 21st, 2024",
-    eventLocation: "Cryptography Lab HIT",
+    imageUrl: "https://res.cloudinary.com/dds4wowea/image/upload/v1739429882/IMG_20250210_174708_r6qojr.jpg",
+    eventName: "AI Odyssey",
+    eventTiming: "10th - 13th February",
+    eventLocation: "SN Bose",
   },
-  // Add more event objects here
+  {
+    id: 3,
+    imageUrl: "https://res.cloudinary.com/dds4wowea/image/upload/v1739424323/Screenshot_20250213_105424_Instagram_wqo5xr.jpg",
+    eventName: "Alumni Connect",
+    eventTiming: "4th January",
+    eventLocation: "Online",
+  },
 ];
 
 export default function RecentEvent() {
-  const topEvent: EventData = eventData[0];
   return (
     <section className={`sm:p-16 xs:p-8 px-6 py-12 relative z-10`}>
       <motion.div
@@ -44,36 +54,22 @@ export default function RecentEvent() {
       >
         <TypingText title="௹ Recent Events" textStyles="text-center" />
         <div className="flex flex-wrap">
-          {/* Left Div */}
-          <div className="w-full sm:w-1/2 p-4">
-            <div className="relative">
-              <img
-                src={topEvent.imageUrl}
-                alt="Event"
-                className="w-full h-auto rounded-2xl"
-              />
-              <div className="absolute bottom-0 left-0 p-2 bg-[rgba(0,0,0,0.5)] text-white rounded-md">
-                <div className="font-bold">{topEvent.eventName}</div>
-                <div className="flex items-center space-x-3">
-                  <IoCalendarOutline />
-                  <span>{topEvent.eventTiming}</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <FaMapMarker />
-                  <span>{topEvent.eventLocation}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Div */}
-          <div className="w-full sm:w-1/2 p-4 ">
-            {eventData.slice(0).map((event) => (
-              <div
-                key={event.id}
-                className="mb-4 border-l-4 border-lime-100 mr-4"
+          {eventData.map((event) => (
+            <div key={event.id} className="w-full sm:w-1/3 p-4">
+              <motion.div
+                variants={fadeInScale}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: false, amount: 0.25 }}
+                className="relative"
               >
-                <div className="ml-4 text-gray-200">
+                <motion.img
+                  src={event.imageUrl}
+                  alt={event.eventName}
+                  className="w-full h-[250px] object-cover rounded-2xl"
+                  variants={fadeInScale}
+                />
+                <div className="absolute bottom-0 left-0 p-2 bg-[rgba(0,0,0,0.5)] text-white rounded-md w-full">
                   <div className="font-bold">{event.eventName}</div>
                   <div className="flex items-center space-x-3">
                     <IoCalendarOutline />
@@ -84,9 +80,9 @@ export default function RecentEvent() {
                     <span>{event.eventLocation}</span>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              </motion.div>
+            </div>
+          ))}
         </div>
       </motion.div>
     </section>
