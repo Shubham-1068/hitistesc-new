@@ -66,7 +66,7 @@ export default function Home() {
 const sliderData = [
   {
     id: " 1",
-    img: "https://res.cloudinary.com/dds4wowea/image/upload/v1739427669/ppf_jzxbvp.jpg",
+    img: "https://res.cloudinary.com/dds4wowea/image/upload/v1739447493/ideathon_2_xhozqx.jpg",
     location: "SN Bose",
     description: "Ideathon",
     title: "National Level Ideathon",

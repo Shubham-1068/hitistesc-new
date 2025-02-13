@@ -21,7 +21,7 @@ interface EventData {
 const eventData: EventData[] = [
   {
     id: 1,
-    imageUrl: "https://res.cloudinary.com/dds4wowea/image/upload/v1739427669/ppf_jzxbvp.jpg",
+    imageUrl: "https://res.cloudinary.com/dds4wowea/image/upload/v1739447493/ideathon_2_xhozqx.jpg",
     eventName: "National Level Ideathon",
     eventTiming: "Upcoming 10th - 11th April",
     eventLocation: "SN Bose",
