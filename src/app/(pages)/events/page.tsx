@@ -66,9 +66,9 @@ export default function Home() {
 const sliderData = [
   {
     id: " 1",
-    img: "https://res.cloudinary.com/dds4wowea/image/upload/v1739447493/ideathon_2_xhozqx.jpg",
+    img: "https://res.cloudinary.com/dds4wowea/image/upload/v1739639103/ideathon_ugcda9.jpg",
     location: "SN Bose",
-    description: "Ideathon",
+    description: "Join the Ideathon on Emerging Trends in AI and Cyber Security at Haldia Institute of Technology! Submit your innovative group project by 9th March 2025 and compete offline on 11th April 2025. ",
     title: "National Level Ideathon",
     registration: true,
     registrationLink: "https://forms.gle/La1A77MUMABr67Ha7",
@@ -101,7 +101,7 @@ const sliderData = [
   },
   {
     id: "5",
-    img: "https://res.cloudinary.com/dds4wowea/image/upload/v1735397266/IMG-20240930-WA0012_tltltm.jpg",
+    img: "https://res.cloudinary.com/dds4wowea/image/upload/v1739639580/webD_mhtpwf.jpg",
     location: "Online",
     description:
       "Web-D-Explore was an incredible journey into web development! A perfect blend of learning, hands-on experience, and skill-building for future tech enthusiasts!",

@@ -15,14 +15,14 @@ export default function Hero() {
       <div>
         <HeroSection />
       </div>
-      <div className="relative mt-[500px]">
+      <div id="recent-events" className="relative mt-[500px]">
+        <RecentEvent />
         <About />
         <div className="gradient-03 z-0" />
         <JoinUs />
       </div>
       <div className="relative">
         <Guest/>
-        <RecentEvent />
         <div className="gradient-04 z-0" />
       </div>
       <div className="relative">

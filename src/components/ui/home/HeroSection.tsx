@@ -3,19 +3,19 @@ import React from "react";
 interface HeroSectionProps {}
 
 const imagesData: string[] = [
-  "https://res.cloudinary.com/ds4lbluhe/image/upload/v1708692427/IMG_20231101_181124_tmfwrf.jpg",
+  "https://res.cloudinary.com/dds4wowea/image/upload/v1739429882/IMG_20250210_174708_r6qojr.jpg",
   "https://res.cloudinary.com/ds4lbluhe/image/upload/v1708693635/IMG_20231101_185655_pwdjnf.jpg",
-  "https://res.cloudinary.com/ds4lbluhe/image/upload/v1708695287/abhishek_h1mqty.png",
+  "https://res.cloudinary.com/dds4wowea/image/upload/v1739641141/Brochure_ubqan0.jpg",
   "https://cdn.pixabay.com/photo/2016/11/23/14/45/coding-1853305_1280.jpg",
   "https://cdn.pixabay.com/photo/2023/04/03/19/37/soldering-7897827_1280.jpg",
-  "https://res.cloudinary.com/ds4lbluhe/image/upload/v1708694086/20240221155657_IMG_9196_axocqw.jpg",
+  "https://res.cloudinary.com/dds4wowea/image/upload/v1735392094/IMG_3504_q3xnlq.jpg",
 ];
 
 export default function HeroSection() {
   return (
     <div className="relative">
-      <div className="pb-80 pt-16 sm:pb-40 sm:pt-24 lg:pb-48 lg:pt-40">
-        <div className="relative mx-auto max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
+      <div className="pb-16 pt-16 sm:pb-40 sm:pt-24 lg:pb-48 lg:pt-40">
+        <div className="relative mx-auto max-w-7xl sm:static sm:px-6 lg:px-8">
           <div className="sm:max-w-lg my-auto">
             <h1 className="font font-annonymousPro text-4xl font-bold tracking-tight text-[#DCFFB7] sm:text-6xl">
               ISTE Chapter HIT- Join the Revolution

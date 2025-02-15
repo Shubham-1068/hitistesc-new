@@ -6,30 +6,28 @@ import { usePathname } from "next/navigation";
 import { FaUserPlus } from "react-icons/fa6";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoCloseOutline } from "react-icons/io5";
-import { navVariants } from "@/utils/motion";
 import { IoIosLogOut } from "react-icons/io";
-
+import { navVariants } from "@/utils/motion";
 import { useSignOutAccount } from "@/lib/react-query/queriesAndMutations";
 import { useUserContext } from "@/context/useUserContext";
 import Link from "next/link";
+
 const Navbar: React.FC = () => {
-  const { mutate: signOut, isSuccess } = useSignOutAccount();
+  const { mutate: signOut } = useSignOutAccount();
   const { isAuthenticated } = useUserContext();
   const [isNavOpen, setIsNavOpen] = useState<boolean>(false);
   const router = useRouter();
   const pathname = usePathname();
 
+  // Toggle mobile navigation menu
   const toggleNav = (): void => {
     setIsNavOpen(!isNavOpen);
   };
 
-  const handleMenuClick = (
-    path: string,
-    event: React.MouseEvent<HTMLDivElement>
-  ): void => {
-    event.preventDefault(); // Prevent the default behavior
+  // Handle navigation click
+  const handleMenuClick = (path: string): void => {
     router.push(path);
-    setIsNavOpen(false); // Close the mobile menu after clicking a link
+    setIsNavOpen(false); // Close mobile menu after selection
   };
 
   return (
@@ -37,82 +35,106 @@ const Navbar: React.FC = () => {
       variants={navVariants}
       initial="hidden"
       whileInView="show"
-      className={`fixed md:px-10" glassmorphism z-50 flex w-full flex-wrap items-center justify-around gap-2 px-5 text-sm font-medium uppercase opacity-90 ${
-        isNavOpen ? "rounded-b-lg" : "rounded-b-full"
-      }`}
+      className={`fixed top-0 left-0 w-full z-10 bg-black/50 backdrop-blur-lg transition-all duration-300 ${isNavOpen ? "rounded-b-lg" : "rounded-b-full"
+        }`}
     >
-      <div
-        className={`2xl:max-w-[1280px] w-full flex items-center justify-around p-4`}
-      >
+      {/* 🔹 Marquee for Upcoming Events */}
+      {pathname === "/" && (
+        <div className="bg-[#DCFFB7] text-gray-900 py-2 overflow-hidden whitespace-nowrap">
+          <div className="relative w-full overflow-hidden">
+            <motion.div
+              className="flex space-x-10 items-center"
+              animate={{ x: "-100%" }}
+              initial={{ x: "100%" }}
+              transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
+            >
+              <Link href="#recent-events" className="font-bold text-lg cursor-pointer hover:underline">
+                🚀 Upcoming Event: NATIONAL LEVEL IDEATHON
+              </Link>
+              <Link href="#recent-events" className="font-bold cursor-pointer text-lg hover:underline">
+                🎯 Upcoming Event: ANNUAL CONVENTION
+              </Link>
+              <Link href="#recent-events" className="font-bold text-lg cursor-pointer hover:underline">
+                🚀 Upcoming Event: NATIONAL LEVEL IDEATHON
+              </Link>
+              <Link href="#recent-events" className="font-bold cursor-pointer text-lg hover:underline">
+                🎯 Upcoming Event: ANNUAL CONVENTION
+              </Link>
+            </motion.div>
+          </div>
+        </div>
+      )}
+
+      {/* 🔹 Main Navbar */}
+      <div className="flex items-center justify-between px-6 md:px-12 py-3">
+        {/* 🔹 Logo */}
         <div
-          className={`flex items-center gap-2 font-extrabold text-xl tracking-[4px] text-white cursor-pointer ${
-            isNavOpen ? "hidden" : "block"
-          }`}
+          className="text-white text-2xl font-extrabold tracking-widest cursor-pointer hover:text-[#DCFFB7] transition"
           onClick={() => router.push("/")}
         >
           ISTE HIT
         </div>
+
+        {/* 🔹 Mobile Menu Button */}
         <div className="md:hidden">
           <button
-            type="button"
             onClick={toggleNav}
-            className="h-10 w-10 items-center justify-center rounded-lg p-2 text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
-            aria-controls="navbar-sticky"
+            className="text-white hover:text-[#DCFFB7] transition"
+            aria-controls="navbar-menu"
             aria-expanded={isNavOpen}
           >
             {isNavOpen ? (
-              <IoCloseOutline className="h-5 w-5 text-xl" />
+              <IoCloseOutline className="text-3xl" />
             ) : (
-              <GiHamburgerMenu className="h-5 w-5 text-xl" />
+              <GiHamburgerMenu className="text-3xl" />
             )}
           </button>
         </div>
+
+        {/* 🔹 Navigation Links */}
         <div
-          className={`items-center md:order-1 md:flex md:w-auto ${
-            isNavOpen ? "block" : "hidden"
-          }`}
-          id="navbar-sticky"
+          className={`absolute md:static bg-black/80 md:bg-transparent top-16 left-0 w-full md:w-auto text-center md:flex items-center md:space-x-10 ${isNavOpen ? "block" : "hidden md:flex"
+            }`}
+          id="navbar-menu"
         >
-          <ul className="mt-4 flex flex-col space-y-4 md:flex-row md:space-x-8 md:space-y-0">
+          <ul className="flex flex-col md:flex-row md:items-center md:space-x-6 text-white text-lg">
             {[
               { path: "/", label: "HOME" },
               { path: "/events", label: "EVENTS" },
               { path: "/social", label: "SOCIAL" },
-              // { path: "/memories", label: "MEMORIES" },
             ].map((item, index) => (
               <li key={index}>
                 <div
-                  onClick={(event) => handleMenuClick(item.path, event)}
-                  className={`block rounded ${
-                    pathname === item.path
-                      ? "border-b-4 text-white"
-                      : "text-white"
-                  } cursor-pointer hover:font-extrabold`}
+                  onClick={() => handleMenuClick(item.path)}
+                  className={`cursor-pointer px-4 py-2 rounded-lg transition-all ${pathname === item.path
+                      ? "bg-[#DCFFB7] text-black font-bold"
+                      : "hover:text-[#DCFFB7]"
+                    }`}
                 >
                   {item.label}
                 </div>
               </li>
             ))}
-            <div className="m-4 flex gap-1 md:ml-12 ">
-              {/* <Link  href={isAuthenticated? "/logout" : "/login"} className="cursor-pointer text-white bg-purple-600 p-1 rounded-xl">
-                {isAuthenticated ? (
-                  "Logout"
-                ) : (
-                  <FaUserPlus className="text-[#DCFFB7] text-2xl cursor-pointer" />
-                )}
-              </Link> */}
-              {isAuthenticated ? (
-                <button onClick={()=>signOut()} className="text-rose-300 inline-flex hover:font-extrabold cursor-pointer"><IoIosLogOut className="text-xl"/>Logout</button>
-              ) : (
-                <Link
-                  href="/login"
-                  className="cursor-pointer inline-flex hover:font-extrabold text-[#DCFFB7]"
-                >
-                  <FaUserPlus className=" text-xl mr-1" />Login
-                </Link>
-              )}
-            </div>
           </ul>
+
+          {/* 🔹 Authentication Buttons */}
+          <div className="mt-4 md:mt-0 md:ml-8">
+            {isAuthenticated ? (
+              <button
+                onClick={signOut}
+                className="text-rose-300 flex items-center gap-1 text-lg hover:text-red-500 transition"
+              >
+                <IoIosLogOut className="text-xl" /> Logout
+              </button>
+            ) : (
+              <Link
+                href="/login"
+                className="text-[#DCFFB7] flex items-center gap-1 text-lg hover:text-white transition"
+              >
+                <FaUserPlus className="text-xl" /> Login
+              </Link>
+            )}
+          </div>
         </div>
       </div>
     </motion.nav>
