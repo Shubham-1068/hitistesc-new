@@ -13,7 +13,7 @@ const imagesData: string[] = [
 
 export default function HeroSection() {
   return (
-    <div className="relative">
+    <div className="relative h-[100vh]">
       <div className="pb-16 pt-16 sm:pb-40 sm:pt-24 lg:pb-48 lg:pt-40">
         <div className="relative mx-auto max-w-7xl sm:static sm:px-6 lg:px-8">
           <div className="sm:max-w-lg my-auto">
