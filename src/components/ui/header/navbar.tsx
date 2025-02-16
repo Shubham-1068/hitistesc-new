@@ -121,7 +121,7 @@ const Navbar: React.FC = () => {
           <div className="mt-4 md:mt-0 md:ml-8">
             {isAuthenticated ? (
               <button
-                onClick={signOut}
+                onClick={()=>signOut()}
                 className="text-rose-300 flex items-center gap-1 text-lg hover:text-red-500 transition"
               >
                 <IoIosLogOut className="text-xl" /> Logout
