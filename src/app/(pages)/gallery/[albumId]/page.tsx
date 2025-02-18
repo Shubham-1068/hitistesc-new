@@ -1,35 +1,13 @@
 // "use client"
 import axios from "axios";
 import ImagesGallery from "@/components/ImageGallery";
-interface ImageItem {
-    original: string;
-    thumbnail: string;
-}
+import { fetchAlbumImages,ImageItem } from "@/utils/fetchAlbumImages";
 
 interface AlbumDetailPageProps {
     params: { albumId: string };
 }
 
-// Function to fetch images for a specific album
-export const fetchAlbumImages = async (albumId: string): Promise<ImageItem[]> => {
-    try {
-        const response = await axios.get<string[]>(
-            `https://google-photos-album-demo2.glitch.me/${albumId}`
-        );
 
-        const images = response.data?.map((url) => ({
-            original: `${url}=w1024`,
-            thumbnail: `${url}=w100`,
-        })) || [];
-
-        //   console.log("Fetched images:", images); // Debugging
-
-        return images;
-    } catch (error) {
-        console.error("Error fetching images:", error);
-        return [];
-    }
-};
 
 
 export default async function AlbumDetailPage({ params }: AlbumDetailPageProps) {

@@ -7,6 +7,7 @@ interface Album {
 }
 
 // Sample album data
+
 const albums: Album[] = [
   {
     id: "KxepJGFEeXVy2Pzt6",
