@@ -39,7 +39,7 @@ const Navbar: React.FC = () => {
         }`}
     >
       {/* 🔹 Marquee for Upcoming Events */}
-      {pathname === "/" && (
+      {/* {pathname === "/" && (
         <div className="bg-[#DCFFB7] text-gray-900 py-2 overflow-hidden whitespace-nowrap">
           <div className="relative w-full overflow-hidden">
             <motion.div
@@ -63,7 +63,7 @@ const Navbar: React.FC = () => {
             </motion.div>
           </div>
         </div>
-      )}
+      )} */}
 
       {/* 🔹 Main Navbar */}
       <div className="flex items-center justify-between px-6 md:px-12 py-3">
@@ -101,6 +101,7 @@ const Navbar: React.FC = () => {
             {[
               { path: "/", label: "HOME" },
               { path: "/events", label: "EVENTS" },
+              { path: "/gallery", label: "MEMORIES" },
               { path: "/social", label: "SOCIAL" },
             ].map((item, index) => (
               <li key={index}>

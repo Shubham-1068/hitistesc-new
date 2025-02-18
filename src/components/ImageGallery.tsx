@@ -14,7 +14,7 @@ interface ImagesGalleryProps {
 }
 
 const ImagesGallery: React.FC<ImagesGalleryProps> = ({ images }) => {
-  if (!images || images.length === 0) return <p>No images available. Currently we are facing server issues</p>;
+  if (!images || images.length === 0) return <p>No images available.</p>;
 
   return <ImageGallery items={images} />;
 };

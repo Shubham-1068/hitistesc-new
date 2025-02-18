@@ -22,7 +22,7 @@ export const fetchAlbumImages = async (albumId: string): Promise<ImageItem[]> =>
             thumbnail: `${url}=w100`,
         })) || [];
 
-          console.log("Fetched images:", images); // Debugging
+        //   console.log("Fetched images:", images); // Debugging
 
         return images;
     } catch (error) {
@@ -35,7 +35,7 @@ export const fetchAlbumImages = async (albumId: string): Promise<ImageItem[]> =>
 export default async function AlbumDetailPage({ params }: AlbumDetailPageProps) {
     const images = await fetchAlbumImages(params.albumId);
     return (
-        <div className="p-12">
+        <div className="my-12 h-[90%]">
 
             <ImagesGallery images={images} />
             {/* <button
