@@ -20,11 +20,11 @@ export default function HeroSection() {
             <h1 className="font font-annonymousPro text-4xl font-bold tracking-tight text-[#DCFFB7] sm:text-6xl">
               ISTE HIT-Chapter
             </h1>
-            <h1 className="font font-annonymousPro text-2xl font-bold tracking-tight text-[#DCFFB7] sm:text-6xl mt-2">
+            <h1 className="font font-annonymousPro text-2xl font-bold tracking-tight text-[#DCFFB7] sm:text-4xl mt-2">
               #Join the Revolution
             </h1>
             <p className="font-lemon mt-5 md:text-lg text-base text-[#FFF8E3]">
-              Empowering Tomorrow Innovators: ISTE Chapter HIT – Where
+              Empowering Tomorrow Innovators: ISTE HIT –Chapter, Where
               Technology Meets Heroism!
             </p>
           </div>
