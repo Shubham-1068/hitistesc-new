@@ -159,6 +159,7 @@ const Navbar: React.FC = () => {
             { path: "/social", label: "SOCIAL" },
           ].map((item, index) => (
             <li
+            key={index}
               className="hover:text-[#DCFFB7] transition"
             >
               <div
