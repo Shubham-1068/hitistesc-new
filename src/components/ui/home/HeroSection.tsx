@@ -13,14 +13,17 @@ const imagesData: string[] = [
 
 export default function HeroSection() {
   return (
-    <div className="relative h-[100vh]">
+    <div className="relative h-[100vh] px-4 md:px-0">
       <div className="pb-16 pt-16 sm:pb-40 sm:pt-24 lg:pb-48 lg:pt-40">
         <div className="relative mx-auto max-w-7xl sm:static sm:px-6 lg:px-8">
           <div className="sm:max-w-lg my-auto">
             <h1 className="font font-annonymousPro text-4xl font-bold tracking-tight text-[#DCFFB7] sm:text-6xl">
-              ISTE Chapter HIT- Join the Revolution
+              ISTE HIT-Chapter
             </h1>
-            <p className="font-lemon mt-4 text-lg text-[#FFF8E3]">
+            <h1 className="font font-annonymousPro text-2xl font-bold tracking-tight text-[#DCFFB7] sm:text-6xl mt-2">
+              #Join the Revolution
+            </h1>
+            <p className="font-lemon mt-5 md:text-lg text-base text-[#FFF8E3]">
               Empowering Tomorrow Innovators: ISTE Chapter HIT – Where
               Technology Meets Heroism!
             </p>
@@ -38,7 +41,7 @@ export default function HeroSection() {
                       {imagesData.slice(0, 2).map((imageUrl, index) => (
                         <div
                           key={index}
-                          className="h-64 w-44 overflow-hidden rounded-lg shadow-md shadow-[#FFF8E3] sm:opacity-0 lg:opacity-100"
+                          className="md:h-64 md:w-44 h-60 w-[42vw] overflow-hidden rounded-lg shadow-md shadow-[#FFF8E3] sm:opacity-0 lg:opacity-100"
                         >
                           <img
                             src={imageUrl}
@@ -52,7 +55,7 @@ export default function HeroSection() {
                       {imagesData.slice(2, 5).map((imageUrl, index) => (
                         <div
                           key={index}
-                          className="h-64 w-44 overflow-hidden rounded-lg shadow-md shadow-[#FFF8E3]"
+                          className="md:h-64 md:w-44 h-52 w-[42vw] overflow-hidden rounded-lg shadow-md shadow-[#FFF8E3]"
                         >
                           <img
                             src={imageUrl}
@@ -66,7 +69,7 @@ export default function HeroSection() {
                       {imagesData.slice(5, 7).map((imageUrl, index) => (
                         <div
                           key={index}
-                          className="h-64 w-44 overflow-hidden rounded-lg shadow-md shadow-[#FFF8E3]"
+                          className="hidden md:block md:h-64 md:w-44 h-52 w-20 overflow-hidden rounded-lg shadow-md shadow-[#FFF8E3]"
                         >
                           <img
                             src={imageUrl}
@@ -80,7 +83,7 @@ export default function HeroSection() {
                 </div>
               </div>
               <Link href="/join-membership">
-                <button className="group relative overflow-hidden rounded-md border border-b-4 border-gray-400 bg-gray-950 px-4 py-2 font-medium text-[#FFF8E3] outline-none duration-300 hover:border-b hover:border-t-4 hover:brightness-150 active:opacity-75">
+                <button className="group relative md:left-0 -left-1 overflow-hidden rounded-md border border-b-4 border-gray-400 bg-gray-950 px-3 md:px-4 py-2 font-medium text-[#FFF8E3] outline-none duration-300 hover:border-b hover:border-t-4 hover:brightness-150 active:opacity-75">
                   <span className="absolute -top-[150%] left-0 inline-flex h-[5px] w-80 rounded-md bg-gray-400 opacity-50 shadow-[0_0_10px_10px_rgba(0,0,0,0.3)] shadow-gray-400 duration-500 group-hover:top-[150%]"></span>
                   Join Membership
                 </button>
