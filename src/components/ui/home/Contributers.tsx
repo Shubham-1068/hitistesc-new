@@ -53,15 +53,22 @@ const Contributers = ({
 
     return (
         <>
-            <div className="flex flex-col items-center gap-4 lg:-mb-5 text-center bg-transparent lg:mt-10 -mb-10">
+            <motion.div 
+                initial={{ opacity: 0, y: 50 }} 
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }} 
+                className="flex flex-col items-center gap-4 lg:-mb-5 text-center bg-transparent lg:mt-10 -mb-10"
+            >
                 <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-400">
                     Our Contributors
                 </h1>
                 <p className="text-md text-gray-300 max-w-2xl px-8 md:px-0">
                 Grateful to all contributors for their valuable contributions to the development of this website
                 </p>
-            </div>
-            <div className="max-w-sm md:max-w-4xl mx-auto antialiased font-sans px-4 md:px-8 lg:px-12 py-20">
+            </motion.div>
+            <motion.div initial={{ opacity: 0, y: 50 }} 
+                whileInView={{ opacity: 1, y: 0 }} 
+                transition={{ duration: 0.5 }} className="max-w-sm md:max-w-4xl mx-auto antialiased font-sans px-4 md:px-8 lg:px-12 py-20">
                 <div className="relative grid grid-cols-1 md:grid-cols-2 gap-20">
                     <div className="-mb-11 lg:mb-0">
                         <div className="relative h-80 w-full">
@@ -177,7 +184,7 @@ const Contributers = ({
                         </div>
                     </div>
                 </div>
-            </div>
+            </motion.div>
         </>
     );
 };
