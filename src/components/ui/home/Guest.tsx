@@ -76,11 +76,11 @@ const Guest: React.FC = () => {
               variants={itemVariants}
               whileHover={{ y: -10, transition: { duration: 0.3 } }}
             >
-              <div className="overflow-hidden flex justify-center items-center p-5">
+              <div className="overflow-hidden flex justify-center items-center p-5 object-contain">
                 <img 
                   src={partner.logo} 
                   alt={partner.name} 
-                  className="w-full object-contain"
+                  className="w-[75%] object-fill"
                 />
               </div>
             </motion.div>
@@ -92,7 +92,7 @@ const Guest: React.FC = () => {
           variants={itemVariants}
         >
           <p className="text-gray-300 mb-6">
-            Interested in becoming a sponsor or partner? Reach out to us to learn about our sponsorship opportunities.
+            Interested in becoming a sponsor or partner? Reach out to us at <a href="mailto:hitiste.studentchapter@gmail.com" className="text-accent cursor-pointer text-[#dcffb7] transition-colors duration-300">hitiste.studentchapter@gmail.com</a>
           </p>
         </motion.div>
       </motion.div>
