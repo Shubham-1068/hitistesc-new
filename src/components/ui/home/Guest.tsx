@@ -61,7 +61,7 @@ const Guest: React.FC = () => {
         <motion.div className="text-center mb-12 text-transparent bg-clip-text bg-gradient-to-b from-neutral-200 to-neutral-400" variants={itemVariants}>
           <h2 className="text-3xl md:text-5xl font-bold mb-4">Technical <span className="text-accent">Partners</span></h2>
           <p className="text-md text-gray-300 max-w-2xl mx-auto">
-            "Collaborating with industry leaders to bring you the best resources and opportunities"
+            Collaborating with industry leaders to bring you the best resources and opportunities
           </p>
         </motion.div>
 

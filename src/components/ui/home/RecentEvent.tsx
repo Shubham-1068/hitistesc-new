@@ -1,7 +1,6 @@
 import React from 'react';
 import { Rocket, Calendar, ArrowRight } from 'lucide-react';
 
-import ipadScroll from '@/components/IpadScroll';
 import IpadScroll from '@/components/IpadScroll';
 
 function App() {
@@ -52,7 +51,7 @@ function App() {
               Recent Events
             </h1>
             <p className="text-md text-gray-300 max-w-2xl px-8 md:px-0">
-              "Stay updated with the latest activities and upcoming events"
+              Stay updated with the latest activities and upcoming events
             </p>
           </div>
         }

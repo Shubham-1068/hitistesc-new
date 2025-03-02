@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import { useScroll, useTransform, motion, MotionValue } from "framer-motion";
 
-const ipadScroll = ({
+const IpadScroll = ({
   titleComponent,
   children,
 }: {
@@ -122,4 +122,4 @@ export const Card = ({
   );
 };
 
-export default ipadScroll;
+export default IpadScroll;

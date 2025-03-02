@@ -254,7 +254,7 @@ export default function TeamExplorer() {
           className="text-md text-gray-300 max-w-2xl text-center px-4 md:px-0"
           variants={titleVariants}
         >
-          "Discover the talented groups that drive our success and innovation"
+          Discover the talented groups that drive our success and innovation
         </motion.p>
       </motion.div>
 
