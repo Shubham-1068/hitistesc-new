@@ -326,3 +326,5 @@ export const footerVariants: {
     },
   },
 };
+
+// Duplicate declaration removed

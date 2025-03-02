@@ -1,33 +1,38 @@
 "use client";
+import { Spotlight } from "@/components/Spotlight";
 import {
   HeroSection,
   About,
-  JoinUs,
   RecentEvent,
   Explore,
   Message,
-  Guest
 } from "@/components/ui/home";
+import Guest from "@/components/ui/home/Guest";
+import Decorations from "@/components/ui/home/Decorations";
+import Banner from "@/components/ui/home/Banner";
+
 
 export default function Hero() {
   return (
     <div className="mt-12 md:mt-2 h-full">
-      <div>
-        <HeroSection />
+      <Decorations />
+      <div className="relative hidden md:block">
+        <Spotlight />
       </div>
-      <div id="recent-events" className="relative mt-[500px]">
+      <HeroSection />
+      <Banner />
+      <div id="recent-events" className="relative">
         <RecentEvent />
+        <div className="" />
+      </div>
+      <div className="relative">
+        <div className="" />
+      </div>
+      <div className="relative">
         <About />
-        <div className="gradient-03 z-0" />
-        <JoinUs />
-      </div>
-      <div className="relative">
-        <Guest/>
-        <div className="gradient-04 z-0" />
-      </div>
-      <div className="relative">
-        <Explore />
-        <div className="gradient-04 z-0" />
+        <div className="" />
+        <Explore  />
+        <Guest />
         <Message />
       </div>
     </div>

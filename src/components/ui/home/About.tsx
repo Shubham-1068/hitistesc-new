@@ -1,36 +1,92 @@
-import React, { FC } from "react";
-import { motion } from "framer-motion";
-import TypingText from "@/components/CustomTexts";
-import { fadeIn, staggerContainer } from "@/utils/motion";
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Users, Target, Award, Lightbulb, Rocket, Globe, Twitter, Linkedin, Github } from 'lucide-react';
+import Logo from '../../../../public/Iste.png';
 
-interface AboutProps {}
+interface TeamMember {
+  id: number;
+  name: string;
+  role: string;
+  image: string;
+  bio: string;
+  social: {
+    twitter?: string;
+    linkedin?: string;
+    github?: string;
+  };
+}
 
-export default function About() {
+
+const AboutUs: React.FC = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    }
+  };
+
   return (
-    <section className={`sm:p-16 xs:p-8 px-6 py-12 relative z-10 container`}>
-      <div className="gradient-02 z-0" />
+    <section className="py-16 px-6 md:px-12 -mt-36">
       <motion.div
-        variants={staggerContainer(0.1, 0.5)}
+        className="max-w-7xl mx-auto"
+        variants={containerVariants}
         initial="hidden"
-        whileInView="show"
-        viewport={{ once: false, amount: 0.25 }}
-        className={`lg:w-[80%] w-[100%] mx-auto flex justify-center items-center flex-col`}
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
       >
-        <TypingText title="௹ About ISTE" textStyles="text-center" />
+        <div className="w-full flex justify-center items-center mb-10">
+          <img src={Logo.src} alt="Logo-iste-main" className='h-[180px] md:h-[220px] w-[180px] md:w-[220px]' />
+        </div>
+        <motion.div className="text-center mb-16" variants={itemVariants}>
+          <span className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-400">Who We Are?</span>
+          <p className="text-md text-gray-300 max-w-3xl mx-auto mt-5">
+          The ISTE Student Chapter at Haldia Institute of Technology fosters innovation in educational technology. As part of ISTE, we empower students with the skills and knowledge to excel in the digital age through research, workshops, and collaborative projects.
+          </p>
+        </motion.div>
 
-        <motion.p
-          variants={fadeIn("up", "tween", 0.2, 1)}
-          className="text-secondary-white my-[16px] text-center text-[16px] font-light sm:text-[24px]"
+        <motion.div 
+          className="flex flex-col md:flex-row justify-center items-center gap-12 mb-20"
+          variants={containerVariants}
         >
-          The ISTE Student Chapter at Haldia Institute of Technology is your
-          gateway to a world of innovation in educational technology. As a part
-          of the Indian Society for Technical Education (ISTE), our mission is
-          to empower students with the tools and knowledge they need to excel in
-          a digital age. We provide a dynamic platform for students to engage in
-          cutting-edge research, participate in workshops, and collaborate on
-          projects that push the boundaries of technology and education.
-        </motion.p>
+          <motion.div variants={itemVariants} className='text-center'>
+            <h3 className="text-2xl font-bold mb-6 flex items-center justify-center">
+              <Target className="text-primary mr-3" size={28} color='white'/>
+              Our Mission
+            </h3>
+            <p className="mb-6 text-gray-300">
+            Our mission is to empower students with the skills, knowledge, and opportunities to excel in the digital age by fostering innovation, collaboration, and research in educational technology.
+            </p>
+          </motion.div>
+
+          <motion.div variants={itemVariants} className='text-center'>
+            <h3 className="text-2xl font-bold mb-6 flex items-center justify-center">
+              <Lightbulb className="text-accent-orange mr-3" size={28} />
+              Our Vision
+            </h3>
+            <p className="mb-6 text-gray-300">
+            Our vision is to create a community of forward-thinking individuals who drive the future of education through technology, innovation, and collaboration, shaping a digitally empowered world.
+            </p>
+          </motion.div>
+        </motion.div>
       </motion.div>
     </section>
   );
-}
+};
+
+export default AboutUs;

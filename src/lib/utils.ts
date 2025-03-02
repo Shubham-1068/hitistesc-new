@@ -1,9 +1,8 @@
 import { type ClassValue, clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
 import { formatDistanceToNow, parseISO } from 'date-fns';
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
-}
+
+
 export const convertFileToUrl = (file: File) => URL.createObjectURL(file);
 
 export function dateFormat(timestamp: string): string {
@@ -64,3 +63,9 @@ export const multiFormatDateString = (timestamp: string = ""): string => {
 export const checkIsLiked = (likeList: string[], userId: string) => {
   return likeList.includes(userId);
 };
+
+
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}

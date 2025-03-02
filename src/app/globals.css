@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Lemon&family=Poller+One&family=Poppins:ital@1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -12,9 +14,7 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  background: radial-gradient(circle, #333333 4%, transparent 10%);
-  background-size: 1em 1em;
-  background-color: black;
+  background: black;
   opacity: 1;
 }
 
@@ -51,7 +51,7 @@ body,
   top: 0;
   left: 0;
   border: 1px solid #ffffff2b;
-  border-radius: 0% 100% 50% 50% / 0% 50% 50% 100% ;
+  border-radius: 0% 100% 50% 50% / 0% 50% 50% 100%;
   mix-blend-mode: difference;
   pointer-events: none;
   transform: translate(-50%, -50%);
@@ -133,9 +133,8 @@ body,
 .claymorphism {
   backdrop-filter: blur(5px);
   background-color: inherit;
-  border-radius: 82% 18% 19% 81% / 51% 43% 57% 49% ;
-  box-shadow:
-    0px 5px 5px 0px rgba(145, 192, 255, 0.5),
+  border-radius: 82% 18% 19% 81% / 51% 43% 57% 49%;
+  box-shadow: 0px 5px 5px 0px rgba(145, 192, 255, 0.5),
     inset 0px 4px 2px 0px rgb(139, 134, 134);
 }
 
@@ -244,7 +243,8 @@ body,
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
   }
-}@layer utilities {
+}
+@layer utilities {
   /* TYPOGRAPHY */
   .h1-bold {
     @apply text-[36px] font-bold leading-[140%] tracking-tighter;
@@ -352,9 +352,9 @@ body,
   }
 
   /* Explore */
-  .{
+  /* .{
     @apply flex flex-col flex-1 items-center overflow-scroll py-10 px-5 md:p-14;
-  }
+  } */
 
   .explore-inner_container {
     @apply max-w-xl flex flex-col items-center w-full gap-3 md:gap-7;
@@ -376,7 +376,6 @@ body,
   .home-creators {
     @apply hidden xl:flex flex-col w-72 2xl:w-465 px-6 py-10 gap-10  overflow-scroll custom-scrollbar;
   }
-
 
   .post_details-card {
     @apply bg-dark-2 w-full max-w-5xl rounded-md flex-col flex xl:flex-row border border-dark-4 xl:rounded-l-[24px];
@@ -502,5 +501,127 @@ body,
 
   .shad-button_ghost {
     @apply flex gap-4 items-center justify-start hover:bg-transparent hover:text-white !important;
+  }
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #000000;
+  color: white;
+  overflow-x: hidden;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(255, 105, 180, 0.03) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to right, rgba(0, 206, 209, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Custom animations */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+Gradient text .text-gradient {
+  background: linear-gradient(90deg, #ff69b4, #00ced1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+/* Subtle noise texture */
+.bg-noise {
+  position: relative;
+}
+
+.bg-noise::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.03;
+  z-index: -1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+
+/* Auto-scrolling image carousel styles */
+.image-scroll-container {
+  display: flex;
+  gap: 1rem;
+  height: 100%;
+  animation: scroll 40s linear infinite;
+  width: max-content;
+}
+
+/* Pause animation on hover */
+.paused-on-hover:hover {
+  animation-play-state: paused;
+}
+
+.image-scroll-item {
+  flex: 0 0 auto;
+  height: 100%;
+  width: 300px;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease;
+}
+
+.event-card {
+  flex: 0 0 auto;
+  height: 100%;
+  width: 300px;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-300px * 5 - 5rem)); /* Width of 5 images plus gaps */
+  }
+}
+
+/* Add responsive adjustments */
+@media (max-width: 768px) {
+  .event-card,
+  .image-scroll-item {
+    width: 250px;
+  }
+  
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-250px * 5 - 5rem));
+    }
   }
 }

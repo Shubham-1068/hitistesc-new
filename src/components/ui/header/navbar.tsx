@@ -1,10 +1,10 @@
 "use client";
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
 import { FaUserPlus } from "react-icons/fa6";
-import { GiHamburgerMenu } from "react-icons/gi";
+import { RiMenu4Line } from "react-icons/ri";
 import { IoCloseOutline } from "react-icons/io5";
 import { IoIosLogOut } from "react-icons/io";
 import { navVariants } from "@/utils/motion";
@@ -16,8 +16,19 @@ const Navbar: React.FC = () => {
   const { mutate: signOut } = useSignOutAccount();
   const { isAuthenticated } = useUserContext();
   const [isNavOpen, setIsNavOpen] = useState<boolean>(false);
+  const [scrolled, setScrolled] = useState<boolean>(false);
   const router = useRouter();
   const pathname = usePathname();
+
+  // Handle scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Toggle mobile navigation menu
   const toggleNav = (): void => {
@@ -30,172 +41,250 @@ const Navbar: React.FC = () => {
     setIsNavOpen(false); // Close mobile menu after selection
   };
 
+  const navItems = [
+    { path: "/", label: "HOME" },
+    { path: "/events", label: "EVENTS" },
+    { path: "/gallery", label: "MEMORIES" },
+    { path: "/social", label: "SOCIAL" },
+  ];
+
   return (
-    <motion.nav
-      variants={navVariants}
-      initial={{ y: "-100%" }}
-      animate={{ y: 0 }}
-      className={`fixed top-0 left-0 w-full z-10 bg-black/50 backdrop-blur-lg transition-all duration-300 border-b-2 border-gray-700 md:rounded-b-3xl ${isNavOpen ? "h-screen md:h-auto" : "rounded-b-3xl"
-        }`}
-    >
-      {/* 🔹 Marquee for Upcoming Events */}
-      {/* {pathname === "/" && (
-        <div className="bg-[#DCFFB7] text-gray-900 py-2 overflow-hidden whitespace-nowrap">
-          <div className="relative w-full overflow-hidden">
+    <>
+      {/* Floating Navbar */}
+      <motion.nav
+        variants={navVariants}
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className={`fixed top-0 left-0 right-0 z-50 mx-auto lg:mt-4 mt-2 max-w-[95%] sm:max-w-[90%] md:max-w-[85%] lg:max-w-[80%] xl:max-w-[75%] transition-all duration-500 ${
+          scrolled 
+            ? "bg-black/40 backdrop-blur-xl shadow-[0_8px_32px_0_rgba(220,255,183,0.15)]" 
+            : "bg-black/20 backdrop-blur-xl"
+        } rounded-2xl overflow-hidden`}
+      >
+        <div className="w-full mx-auto">
+          {/* Main Navbar Container */}
+          <div className="flex items-center justify-between px-4 sm:px-6 lg:px-8 py-3">
+            {/* Logo */}
             <motion.div
-              className="flex space-x-10 items-center"
-              animate={{ x: "-100%" }}
-              initial={{ x: "100%" }}
-              transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
-            >
-              <Link href="#recent-events" className="font-bold text-lg cursor-pointer hover:underline">
-                🚀 Upcoming Event: NATIONAL LEVEL IDEATHON
-              </Link>
-              <Link href="#recent-events" className="font-bold cursor-pointer text-lg hover:underline">
-                🎯 Upcoming Event: ANNUAL CONVENTION
-              </Link>
-              <Link href="#recent-events" className="font-bold text-lg cursor-pointer hover:underline">
-                🚀 Upcoming Event: NATIONAL LEVEL IDEATHON
-              </Link>
-              <Link href="#recent-events" className="font-bold cursor-pointer text-lg hover:underline">
-                🎯 Upcoming Event: ANNUAL CONVENTION
-              </Link>
-            </motion.div>
-          </div>
-        </div>
-      )} */}
-
-      {/* 🔹 Main Navbar */}
-      <div className="flex items-center justify-between px-6 md:px-12 md:py-3 py-2">
-        {/* 🔹 Logo */}
-        <div
-          className="text-white text-2xl font-extrabold tracking-widest cursor-pointer hover:text-[#DCFFB7] transition"
-          onClick={() => router.push("/")}
-        >
-          ISTE HIT
-        </div>
-
-        {/* 🔹 Mobile Menu Button */}
-        <div className="md:hidden relative z-10 mt-2">
-          <button
-            onClick={toggleNav}
-            className="text-white hover:text-[#DCFFB7] transition"
-            aria-controls="navbar-menu"
-            aria-expanded={isNavOpen}
-          >
-            {isNavOpen ? (
-              <IoCloseOutline className="text-3xl" />
-            ) : (
-              <GiHamburgerMenu className="text-3xl" />
-            )}
-          </button>
-        </div>
-
-        {/* 🔹 Navigation Links */}
-        <div
-          className={`absolute md:static md:bg-transparent top-0 left-0 h-screen md:h-auto w-full md:w-auto text-center md:flex items-center md:space-x-10 ${isNavOpen ? "block" : "hidden md:flex"
-            }`}
-          id="navbar-menu"
-        >
-          {/* 🔹 Navigation Links for mobile devices */}
-          {isNavOpen && <ul className="md:hidden h-full w-full relative top-0 -mt-10 md:mt-0 flex flex-col justify-center items-end gap-10 md:flex-row md:items-center md:space-x-6 text-white text-lg">
-            {[
-              { path: "/", label: "HOME" },
-              { path: "/events", label: "EVENTS" },
-              { path: "/gallery", label: "MEMORIES" },
-              { path: "/social", label: "SOCIAL" },
-            ].map((item, index) => (
-              <motion.li
-                key={index}
-                initial={{ opacity: 0, x: 110 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: index * 0.1, duration: 0.2 }}
-                className="hover:text-[#DCFFB7] transition mr-3"
-              >
-                <div
-                  onClick={() => handleMenuClick(item.path)}
-                  className={`cursor-pointer px-4 py-1 rounded-lg transition-all text-2xl ${pathname === item.path
-                    ? "border-r-4 border-[#DCFFB7] mx-3 rounded-none font-extrabold text-3xl"
-                    : "hover:text-[#DCFFB7]"
-                    }`}
-                >
-                  {item.label}
-                </div>
-              </motion.li>
-            ))}
-
-            {/* 🔹 Authentication Buttons */}
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5, duration: 0.6 }} className="absolute bottom-16 w-full flex flex-col items-center justify-center">
-              <div className="w-full flex items-center justify-center"><div className="h-[1px] w-[85%] bg-slate-400"></div></div>
-              <div className="w-[65%] h-10 mt-10 border-2 rounded-xl border-[#DCFFB7] flex items-center justify-center overflow-hidden" onClick={() => { setIsNavOpen(false) }}>
-                {isAuthenticated ? (
-                  <button
-                    onClick={() => signOut()}
-                    className="w-full h-full bg-rose-300 text-gray-900 flex items-center justify-center gap-2 text-lg transition"
-                  >
-                    <IoIosLogOut className="text-xl" /> <p>Logout</p>
-                  </button>
-                ) : (
-                  <Link
-                    href="/login"
-                    className="w-full h-full bg-[#DCFFB7] text-gray-900 flex items-center justify-center gap-2 text-lg transition"
-                  >
-                    <FaUserPlus className="text-xl" /> <p>Login</p>
-                  </Link>
-                )}
-              </div>
-            </motion.div>
-
-          </ul>}
-
-        </div>
-
-        {/* 🔹 Navigation Links for big screen devices */}
-        {<ul className="hidden md:flex items-center text-white text-md">
-          {[
-            { path: "/", label: "HOME" },
-            { path: "/events", label: "EVENTS" },
-            { path: "/gallery", label: "MEMORIES" },
-            { path: "/social", label: "SOCIAL" },
-          ].map((item, index) => (
-            <li
-            key={index}
-              className="hover:text-[#DCFFB7] transition"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="relative z-20"
             >
               <div
-                onClick={() => handleMenuClick(item.path)}
-                className={`cursor-pointer mx-4 px-1 rounded-lg transition-all text-md ${pathname === item.path
-                  ? "border-b-2 border-[#DCFFB7] rounded-none font-bold"
-                  : "hover:text-[#DCFFB7]"
-                  }`}
+                onClick={() => router.push("/")}
+                className="flex items-center cursor-pointer group"
               >
-                {item.label}
+                <motion.span 
+                  className="text-white text-2xl font-extrabold tracking-wider group-hover:text-[#DCFFB7] transition-colors duration-300 cursor-pointer"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                >
+                  ISTE
+                </motion.span>
+                <motion.span 
+                  className="text-[#DCFFB7] text-2xl font-extrabold tracking-wider ml-2 group-hover:text-white transition-colors duration-300 cursor-pointer"
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                >
+                  HIT
+                </motion.span>
               </div>
-            </li>
-          ))}
+            </motion.div>
 
-          {/* 🔹 Authentication Buttons */}
-          <div className="w-[65%] flex items-center justify-center text-md ml-3 cursor-pointer" onClick={() => { setIsNavOpen(false) }}>
-            {isAuthenticated ? (
-              <button
-                onClick={() => signOut()}
-                className="w-full h-full bg-rose-300 text-gray-900 flex items-center justify-center gap-1 transition px-2 rounded-xl cursor-pointer hover:bg-transparent hover:text-rose-300 border-2 border-rose-300"
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-1">
+              {navItems.map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: 0.1 * index }}
+                  whileHover={{ y: -3 }}
+                  whileTap={{ y: 0 }}
+                  className="relative"
+                >
+                  <div
+                    onClick={() => handleMenuClick(item.path)}
+                    className={`cursor-pointer px-4 py-2 text-sm font-medium transition-all duration-300 ${
+                      pathname === item.path
+                        ? "text-[#DCFFB7]"
+                        : "text-white hover:text-[#DCFFB7]"
+                    }`}
+                  >
+                    {item.label}
+                  </div>
+                  {pathname === item.path && (
+                    <motion.div
+                      layoutId="activeTab"
+                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#DCFFB7] mx-4"
+                      initial={{ opacity: 0, width: "0%" }}
+                      animate={{ opacity: 1, width: "calc(100% - 2rem)" }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  )}
+                </motion.div>
+              ))}
+
+              {/* Authentication Button - Desktop */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3, delay: 0.4 }}
+                className="ml-6"
               >
-                <IoIosLogOut className="text-xl" /> Logout
-              </button>
-            ) : (
-              <Link
-                href="/login"
-                className="w-full h-full bg-[#DCFFB7] text-gray-900 flex items-center justify-center gap-1 transition px-2 rounded-xl cursor-pointer hover:bg-transparent hover:text-[#DCFFB7] border-2 border-[#DCFFB7]"
+                {isAuthenticated ? (
+                  <motion.button
+                    whileHover={{ scale: 1.05, boxShadow: "0 0 15px rgba(255, 99, 132, 0.5)" }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => signOut()}
+                    className="flex items-center justify-center gap-1.5 px-5 py-2 rounded-full bg-gradient-to-r from-rose-400 to-rose-500 text-white font-medium text-sm transition-all duration-300 hover:shadow-lg hover:shadow-rose-500/20 border border-transparent hover:border-rose-300"
+                  >
+                    <IoIosLogOut className="text-lg" />
+                    <span>Logout</span>
+                  </motion.button>
+                ) : (
+                  <motion.div
+                    whileHover={{ scale: 1.05, boxShadow: "0 0 15px rgba(220, 255, 183, 0.5)" }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <Link
+                      href="/login"
+                      className="flex items-center justify-center gap-1.5 px-5 py-2 rounded-full bg-gradient-to-r from-[#DCFFB7] to-[#9be662] text-gray-900 font-medium text-sm transition-all duration-300 hover:shadow-lg hover:shadow-[#DCFFB7]/20 border border-transparent hover:border-[#DCFFB7]/50"
+                    >
+                      <FaUserPlus className="text-sm" />
+                      <span>Login</span>
+                    </Link>
+                  </motion.div>
+                )}
+              </motion.div>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <div className="md:hidden relative z-20">
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                onClick={toggleNav}
+                className="text-white p-2 rounded-full hover:bg-white/10 transition-colors duration-300"
+                aria-controls="navbar-menu"
+                aria-expanded={isNavOpen}
               >
-                <FaUserPlus className="text-lg" /> Login
-              </Link>
-            )}
+                {isNavOpen ? (
+                  <IoCloseOutline className="text-2xl" />
+                ) : (
+                  <RiMenu4Line className="text-2xl" />
+                )}
+              </motion.button>
+            </div>
           </div>
-        </ul>}
+        </div>
+      </motion.nav>
 
-      </div>
-    </motion.nav>
+      {/* Mobile Navigation Menu - Full Screen Overlay */}
+      <AnimatePresence>
+        {isNavOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="md:hidden fixed inset-0 z-40 bg-black/95 backdrop-blur-xl"
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1, duration: 0.3 }}
+              className="absolute top-0 left-0 right-0 p-4 hidden md:flex justify-between items-center"
+            >
+              <div className="flex items-center">
+                <span className="text-white text-2xl font-extrabold tracking-wider">ISTE</span>
+                <span className="text-[#DCFFB7] text-2xl font-extrabold tracking-wider ml-2">HIT</span>
+              </div>
+              <motion.button
+                whileTap={{ scale: 0.9 }}
+                onClick={toggleNav}
+                className="text-white p-2 rounded-full hover:bg-white/10 transition-colors duration-300"
+              >
+                <IoCloseOutline className="text-2xl" />
+              </motion.button>
+            </motion.div>
+            
+            <div className="flex flex-col h-full justify-center items-center px-6 pt-16">
+              <div className="w-full max-w-md">
+                {navItems.map((item, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.1 + index * 0.1 }}
+                    className="mb-6"
+                  >
+                    <motion.div
+                      whileTap={{ scale: 0.95 }}
+                      onClick={() => handleMenuClick(item.path)}
+                      className={`flex items-center justify-between cursor-pointer py-3 px-4 rounded-xl transition-all duration-300 ${
+                        pathname === item.path
+                          ? "bg-[#DCFFB7]/10 text-[#DCFFB7] font-bold"
+                          : "text-white hover:bg-white/5"
+                      }`}
+                    >
+                      <span className="text-xl">{item.label}</span>
+                      {pathname === item.path && (
+                        <motion.div
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          className="w-2 h-2 rounded-full bg-[#DCFFB7]"
+                        />
+                      )}
+                    </motion.div>
+                  </motion.div>
+                ))}
+
+                {/* Authentication Button - Mobile */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5 }}
+                  className="mt-10"
+                >
+                  {isAuthenticated ? (
+                    <motion.button
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      onClick={() => {
+                        signOut();
+                        setIsNavOpen(false);
+                      }}
+                      className="w-full py-4 rounded-2xl bg-gradient-to-r from-rose-400 to-rose-500 text-white flex items-center justify-center gap-2 text-lg font-medium shadow-lg"
+                    >
+                      <IoIosLogOut className="text-xl" />
+                      <span>Logout</span>
+                    </motion.button>
+                  ) : (
+                    <motion.div
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <Link
+                        href="/login"
+                        onClick={() => setIsNavOpen(false)}
+                        className="w-full py-4 rounded-2xl bg-gradient-to-r from-[#DCFFB7] to-[#9be662] text-gray-900 flex items-center justify-center gap-2 text-lg font-medium shadow-lg"
+                      >
+                        <FaUserPlus className="text-xl" />
+                        <span>Login</span>
+                      </Link>
+                    </motion.div>
+                  )}
+                </motion.div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 

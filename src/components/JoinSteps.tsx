@@ -7,15 +7,15 @@ interface JoinStepsProps {
 }
 export default function JoinSteps({ number, text }: JoinStepsProps) {
   return (
-    <div className={`${customStyles.flexCenter} flex-row`}>
+    <div className={`${customStyles.flexCenter} flex-row cursor-default`}>
       <div
-        className={`${customStyles.flexCenter} h-[60px] w-[60px] claymorphism hover:bg-slate-800`}
+        className={`${customStyles.flexCenter} md:h-[60px] md:w-[60px] h-[45px] w-[45px] claymorphism hover:bg-slate-800`}
       >
-        <p className="text-[16px] font-bold text-gray-400 pointer-events-none">
+        <p className="md:text-[16px] text-[13px] font-bold text-gray-400 pointer-events-none flex justify-center items-center">
           {number}
         </p>
       </div>
-      <p className="ml-[30px] flex-1 text-[18px] leading-[24px] text-[#B0B0B0]">
+      <p className="ml-[30px] mt-4 flex-1 md:text-[17px] text-base leading-[24px] text-[#B0B0B0] cursor-default">
         {text}
       </p>
     </div>

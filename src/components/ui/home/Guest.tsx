@@ -1,42 +1,103 @@
-"use client";
+import React from 'react';
+import { motion } from 'framer-motion';
 
-import React, { useEffect, useState } from "react";
-import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
-import TypingText from "@/components/CustomTexts";
-import { motion } from "framer-motion";
-import { fadeIn, staggerContainer } from "@/utils/motion";
-export function Guest() {
-  return (
-    <motion.div
-      variants={staggerContainer(0.1, 0.5)}
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: false, amount: 0.25 }}
-      className="h-[40rem] rounded-md flex flex-col antialiased  dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden"
-    >
-      <TypingText title="௹ Annual Convention Sponsors" textStyles={""} />
-      <InfiniteMovingCards
-        items={testimonials}
-        direction="right"
-        speed="slow"
-      />
-    </motion.div>
-  );
+interface Partner {
+  id: number;
+  name: string;
+  logo: string;
+  description: string;
 }
 
-const testimonials = [
+const partners: Partner[] = [
   {
-    quote:
-      'EEGRAB Services, with the motto "Transforming Business with Transparency, Management, and Simplicity," is a technology innovation company specializing in IoT and mobility solutions. It offers custom IoT solutions, partnering with HP ARUBA, CISCO, and AWS on complex projects.',
-    name: "Technology Innovation Company",
-    title: "EEGRAB Services",
-    link:'https://eegrab.com/'
+    id: 1,
+    name: "IIFON",
+    logo: "https://iifon.org/wp-content/uploads/2024/04/logo.png",
+    description: "Academic partner providing research and educational resources."
   },
   {
-    quote:
-      "A unit of Satts Cyber Technology Private Limited, offers over 100 courses in security and information systems, aligning with international trends. Located in Salt Lake City Sector 5, Kolkata, it is a leading institution in ethical hacking and cybersecurity training. ",
-    name: "Training, Education & Development",
-    title: "DataSpace Academy",
-    link:"https://dataspaceacademy.com/"
+    id: 2,
+    name: "Crypto Conference",
+    logo: "https://iiw.iifon.org/images/india-kolkata.jpg",
+    description: "Annual blockchain conference and networking event."
   },
 ];
+
+const Guest: React.FC = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    }
+  };
+
+
+  return (
+    <section className="bg-transparent pb-16 px-6 md:px-12 -mt-3">
+      <motion.div
+        className="max-w-7xl mx-auto"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+      >
+
+        <motion.div className="text-center mb-12 text-transparent bg-clip-text bg-gradient-to-b from-neutral-200 to-neutral-400" variants={itemVariants}>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">Technical <span className="text-accent">Partners</span></h2>
+          <p className="text-md text-gray-300 max-w-2xl mx-auto">
+            "Collaborating with industry leaders to bring you the best resources and opportunities"
+          </p>
+        </motion.div>
+
+        <motion.div 
+          className="flex flex-col md:flex-row justify-center items-center gap-8"
+          variants={containerVariants}
+        >
+          {partners.map((partner) => (
+            <motion.div
+              key={partner.id}
+              className="bg-white h-[120px] w-[250px] md:h-[160px] md:w-[400px] rounded-xl overflow-hidden border-2 border-slate-600 hover:border-[#dcffb7] transition-colors duration-300 flex justify-around items-center"
+              variants={itemVariants}
+              whileHover={{ y: -10, transition: { duration: 0.3 } }}
+            >
+              <div className="overflow-hidden flex justify-center items-center p-5">
+                <img 
+                  src={partner.logo} 
+                  alt={partner.name} 
+                  className="w-full object-contain"
+                />
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        <motion.div 
+          className="text-center mt-16"
+          variants={itemVariants}
+        >
+          <p className="text-gray-300 mb-6">
+            Interested in becoming a sponsor or partner? Reach out to us to learn about our sponsorship opportunities.
+          </p>
+        </motion.div>
+      </motion.div>
+    </section>
+  );
+};
+
+export default Guest;

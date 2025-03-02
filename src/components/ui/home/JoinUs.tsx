@@ -7,7 +7,7 @@ import TypingText from "@/components/CustomTexts";
 import { staggerContainer, fadeIn, planetVariants } from "@/utils/motion";
 export default function JoinUs() {
   return (
-    <section className={`sm:p-16 xs:p-8 px-6 py-12 relative z-10`}>
+    <section className={`sm:p-16 xs:p-8 px-6 py-12 relative z-10 cursor-default`}>
       <motion.div
         variants={staggerContainer(0.1, 0.5)}
         initial="hidden"
@@ -30,7 +30,15 @@ export default function JoinUs() {
           variants={fadeIn("left", "tween", 0.1, 1)}
           className="flex flex-1 flex-col justify-center items-center"
         >
-          <TypingText title="௹ Why you should join us?" textStyles={""} />
+          {/* Typing Text section */}
+          <div className="hidden md:flex md:flex-row flex-col justify-center items-center">
+            <TypingText title="௹ Why you should join us?" textStyles={"text-3xl"} />
+          </div>
+          <div className="flex md:hidden md:flex-row flex-col justify-center items-center">
+            <TypingText title="௹ Why you should" textStyles={"text-[25px]"} />
+            <TypingText title=" join us?" textStyles={"text-[25px]"} />
+          </div>
+
           <div className="mt-[31px] flex max-w-[390px] flex-col gap-2">
             {startingFeatures.map((feature: string, index: number) => (
               <JoinSteps
