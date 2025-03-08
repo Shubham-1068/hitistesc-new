@@ -187,17 +187,18 @@ const GalleryModal = ({ selectedItem, isOpen, onClose, setSelectedItem, mediaIte
                 </div>
 
                 <motion.button
-                    className="absolute top-2 sm:top-2.5 md:top-3 right-2 sm:right-2.5 md:right-3 
-                              p-2 rounded-full bg-gray-200/80 text-gray-700 hover:bg-gray-300/80 
+                    className="absolute top-24 right-5 md:right-10 sm:top-2.5 md:top-20 sm:right-2.5  
+                              p-2 rounded-full bg-slate-100 text-gray-700 hover:bg-gray-300/80 
                               text-xs sm:text-sm backdrop-blur-sm "
                     onClick={onClose}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                 >
-                    <X className='w-3 h-3' />
+                    <X className='w-5 h-5' color='red' />
                 </motion.button>
             </motion.div>
 
+            <div className="fixed z-50 left-0 bottom-4 w-screen flex items-center justify-center">
             <motion.div
                 drag
                 dragMomentum={false}
@@ -210,14 +211,14 @@ const GalleryModal = ({ selectedItem, isOpen, onClose, setSelectedItem, mediaIte
                         y: prev.y + info.offset.y
                     }));
                 }}
-                className="fixed z-50 left-[42%] bottom-4 touch-none"
+                className="touch-none"
             >
                 <motion.div
                     className="relative rounded-xl bg-sky-400/20 backdrop-blur-xl 
                              border border-blue-400/30 shadow-lg
                              cursor-grab active:cursor-grabbing"
                 >
-                    <div className="flex items-center -space-x-2 px-3 py-2">
+                    <div className="flex items-center gap-3 -space-x-2 px-3 py-2">
                         {mediaItems.map((item, index) => (
                             <motion.div
                                 key={item.id}
@@ -266,6 +267,7 @@ const GalleryModal = ({ selectedItem, isOpen, onClose, setSelectedItem, mediaIte
                     </div>
                 </motion.div>
             </motion.div>
+            </div>
         </>
     );
 };

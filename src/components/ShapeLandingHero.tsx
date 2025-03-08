@@ -3,6 +3,18 @@
 import { motion } from "framer-motion";
 import { Circle } from "lucide-react";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
+
+const buttonVariants = {
+  hover: {
+      scale: 1.05,
+      transition: {
+          duration: 0.2,
+          yoyo: Infinity,
+          ease: "easeInOut"
+      }
+  }
+};
 
 function ElegantShape({
   className,
@@ -145,8 +157,8 @@ export default function ShapeLandingHero({
             animate="visible"
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] mb-6 md:mb-10"
           >
-            <Circle className="h-2 w-2 fill-[#deffba]" />
-            <span className="text-xs md:text-sm text-white/60 tracking-wide">{badge}</span>
+            <Circle className="h-4 w-4 md:h-2 md:w-2 fill-[#deffba]" />
+            <span className="text-xs md:text-sm text-white/90 tracking-wide">{badge}</span>
           </motion.div>
 
           <motion.div custom={1} variants={fadeUpVariants} initial="hidden" animate="visible">
@@ -176,6 +188,25 @@ export default function ShapeLandingHero({
               {description}
             </p>
           </motion.div>
+
+
+          <motion.button
+                    className="relative md:px-8 px-6 py-3 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 text-white font-bold rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 ease-in-out transform hover:scale-110 focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-purple-400 overflow-hidden group"
+                    variants={buttonVariants}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }}
+                >
+                    {/* Shiny overlay with Tailwind */}
+                    <span className="absolute inset-0 bg-white opacity-20 -skew-x-[12deg] translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out pointer-events-none" />
+
+                    <Link href="https://docs.google.com/forms/d/e/1FAIpQLScHi9ybkWZjvl8XleTmODsaUFr_clmiqgF7RW6_Bardz8LhAg/viewform" className="relative z-10 cursor-pointer" target="_blank">
+                        Register Now
+                    </Link>
+
+
+                </motion.button>
         </div>
       </div>
     </div>

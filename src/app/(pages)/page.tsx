@@ -11,7 +11,7 @@ import Guest from "@/components/ui/home/Guest";
 import Decorations from "@/components/ui/home/Decorations";
 import Banner from "@/components/ui/home/Banner";
 import Contributers from "@/components/ui/home/Contributers";
-
+import Footer from "@/components/ui/footer/footer";
 
 const dataContributers = [
   {
@@ -66,6 +66,7 @@ export default function Hero() {
         <Guest />
         <Contributers testimonials={dataContributers} />
         <Message />
+        <Footer />
       </div>
     </div>
   );
