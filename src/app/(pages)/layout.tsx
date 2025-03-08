@@ -28,7 +28,6 @@ const ProtectedLayout = ({ children }: { children: React.ReactNode }) => {
           {children}
         </main>
         <Toaster />
-        <Footer />
       </div>
     </AuthProvider>
     </QueryProvider>
