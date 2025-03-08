@@ -104,7 +104,7 @@ export default function IdeathonSection() {
                         <History className="w-10 h-10 mx-auto mb-6 text-green-500" />
                         <h2 className="text-3xl font-bold mb-6">Annual Convention 1.0 Recap</h2>
                         <p className="text-lg text-gray-300">
-                            The ISTE HIT Students' Chapter at HIT held its inaugural Annual Student Convention on May 22, 2024, highlighting ed-tech empowerment. The event featured keynote speeches, interactive sessions, and student project demonstrations, fostering innovation and collaboration. A key moment was the launch of ISTE HIT's new website to enhance communication and resource sharing. The convention set a high benchmark, reinforcing ISTE HIT's role in shaping technology and education.
+                            The ISTE HIT Students Chapter at HIT held its inaugural Annual Student Convention on May 22, 2024, highlighting ed-tech empowerment. The event featured keynote speeches, interactive sessions, and student project demonstrations, fostering innovation and collaboration. A key moment was the launch of ISTE HIT new website to enhance communication and resource sharing. The convention set a high benchmark, reinforcing ISTE HIT role in shaping technology and education.
                         </p>
                     </motion.div>
                 </div>
@@ -129,7 +129,7 @@ export default function IdeathonSection() {
                         <BookOpen className="w-10 h-10 mx-auto mb-6 text-green-500" />
                         <h2 className="text-3xl font-bold mb-6">About ISTE HIT</h2>
                         <p className="text-lg text-gray-300 mb-6">
-                            The ISTE HIT Students' Chapter at Haldia Institute of Technology is your gateway to a world of innovation in educational technology. As a part of the Indian Society for Technical Education (ISTE), we empower students with cutting-edge tools and knowledge for the digital age.
+                            The ISTE HIT Students Chapter at Haldia Institute of Technology is your gateway to a world of innovation in educational technology. As a part of the Indian Society for Technical Education (ISTE), we empower students with cutting-edge tools and knowledge for the digital age.
                         </p>
                     </motion.div>
 
@@ -154,7 +154,7 @@ export default function IdeathonSection() {
                             <Lightbulb className="w-10 h-10 mb-4 text-green-500" />
                             <h3 className="text-xl font-bold mb-4">Our Mission</h3>
                             <p className="text-gray-300">
-                                To foster leadership, networking, and collaboration while nurturing future-ready professionals. We are committed to ethical and sustainable technological advancements in shaping tomorrow's engineers and innovators.
+                                To foster leadership, networking, and collaboration while nurturing future-ready professionals. We are committed to ethical and sustainable technological advancements in shaping future engineers and innovators.
                             </p>
                         </motion.div>
                     </div>
@@ -172,7 +172,7 @@ export default function IdeathonSection() {
                         <Brain className="w-10 h-10 mx-auto mb-6 text-green-500" />
                         <h2 className="text-3xl font-bold mb-6">Annual Tech Convention & National-Level Ideathon: Shaping AI & Cybersecurity</h2>
                         <p className="text-lg text-gray-300 mb-6">
-                            The ISTE HIT Students' Chapter is excited to present a two-day event dedicated to emerging trends in AI and cybersecurity.
+                            The ISTE HIT Students Chapter is excited to present a two-day event dedicated to emerging trends in AI and cybersecurity.
                         </p>
                     </motion.div>
 
@@ -240,7 +240,7 @@ export default function IdeathonSection() {
                                 <Globe className="w-8 h-8 text-green-500 mb-4 group-hover:scale-110 transition-transform" />
                                 <h3 className="text-xl font-bold mb-3">Massive Reach</h3>
                                 <p className="text-gray-300">
-                                    Connect with 1000+ tech enthusiasts, innovators, and future leaders from across India. Amplify your brand's presence in the educational technology space.
+                                    Connect with 1000+ tech enthusiasts, innovators, and future leaders from across India. Amplify your brand presence in the educational technology space.
                                 </p>
                             </motion.div>
 
@@ -317,7 +317,7 @@ export default function IdeathonSection() {
                         >
                             <h3 className="text-2xl font-bold mb-4">Ready to Make an Impact?</h3>
                             <p className="text-lg text-gray-300 mb-6">
-                                Join us in shaping the future of technology education. Let's create a partnership that drives innovation and empowers the next generation of tech leaders.
+                                Join us in shaping the future of technology education. Let us create a partnership that drives innovation and empowers the next generation of tech leaders.
                             </p>
 
                         </motion.div>
@@ -344,7 +344,7 @@ export default function IdeathonSection() {
                             <Sparkles className="w-6 h-6 text-green-500" />
                         </div>
                         <p className="text-gray-400 max-w-2xl mx-auto">
-                            Join our community of sponsors and make a lasting impact on our event's success
+                            Join our community of sponsors and make a lasting impact on our event success
                         </p>
                     </motion.div>
 
@@ -433,7 +433,7 @@ export default function IdeathonSection() {
                         </div>
                         <div className="text-center space-y-3">
                             <p className="text-gray-300">
-                                Website:{' '}
+                                Website:{}
                                 <a
                                     href="https://hitiste.vercel.app"
                                     className="text-blue-400 hover:text-blue-300 transition-colors duration-200 font-medium cursor-pointer"
@@ -444,7 +444,7 @@ export default function IdeathonSection() {
                                 </a>
                             </p>
                             <p className="text-gray-300">
-                                Email:{' '}
+                                Email:{}
                                 <a
                                     href="mailto:hitiste.studentchapter@gmail.com"
                                     className="text-blue-400 hover:text-blue-300 transition-colors duration-200 font-medium cursor-pointer"
