@@ -30,7 +30,7 @@ const dataContributers = [
     quote: "Web Developer | Next.js | Node.js | Typescript | Java | Docker",
     name: "Shubham Raj",
     designation: "2nd Year Technical Team Member, ISTE HIT",
-    src: "https://media.licdn.com/dms/image/v2/D4D03AQGTB7AbpEe8Rw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1728377047932?e=1746662400&v=beta&t=mUlsJ6QuOmmrqBM5ylwxK6ffOgmHqwjIqxlUm_BN0VY",
+    src: "https://media.licdn.com/dms/image/v2/D4D03AQGZFbTjyNtClw/profile-displayphoto-shrink_800_800/B4DZVa6ICSG4Ac-/0/1740986942829?e=1746662400&v=beta&t=w2-KwqJIVzDNvI1R3UMLD1LISsGgkk2nK5j5hjvwWNU",
   },
   {
     quote: "Pre-Final Year Student | C++ | React | Firebase | MERN Stack | PwC Launchpad 3.0 (2025) Qualified",
