@@ -30,7 +30,7 @@ export default async function BlogPostPage({
   });
 
   return (
-    <div className="mx-12 md:mx-24 dark">
+    <div className="mx-auto max-w-[95%] sm:max-w-[90%] md:max-w-[85%] lg:max-w-[80%] xl:max-w-[75%]">
       <HydrationBoundary state={dehydrate(queryClient)}>
         <Post slug={params.slug} />
       </HydrationBoundary>
