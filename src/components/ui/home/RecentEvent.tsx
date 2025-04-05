@@ -8,17 +8,17 @@ function App() {
   const events = [
     {
       id: 1,
-      title: "Annual Hackathon 2025",
-      date: "March 15-17, 2025",
-      image: "https://res.cloudinary.com/dds4wowea/image/upload/v1739639103/ideathon_ugcda9.jpg",
-      description: "Join us for 48 hours of coding, innovation, and fun!"
+      title: "Annual Convention 2025",
+      date: "April 10, 2025",
+      description: "Get ready for an exciting journey with ISTE - HIT Student's Chapter! Join us on 10th April at 1:00 PM in SN Bose Auditorium for our Annual Convention — a celebration of technology, innovation, and excellence.",
+      image: "https://res.cloudinary.com/db1sduyls/image/upload/v1743836720/AC_p1e35i.jpg"
     },
     {
       id: 2,
-      title: "AI Odyssey",
-      date: "April 5, 2025",
-      image: "https://res.cloudinary.com/dds4wowea/image/upload/v1739429882/IMG_20250210_174708_r6qojr.jpg",
-      description: "Learn from industry experts about the latest tech trends."
+      title: "National Level Hackathon",
+      date: "April 11, 2025",
+      description: "Ready to turn your ideas into reality with ISTE HIT SC? Join IDEATHON — where innovation meets insight. Take the leap and bring your boldest ideas to life!",
+      image: "https://res.cloudinary.com/db1sduyls/image/upload/v1743836926/Ideathon_buucrz.jpg"
     },
     {
       id: 3,

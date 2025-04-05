@@ -5,20 +5,20 @@ import {
   About,
   RecentEvent,
   Explore,
-  Message,
 } from "@/components/ui/home";
 import Guest from "@/components/ui/home/Guest";
 import Decorations from "@/components/ui/home/Decorations";
 import Banner from "@/components/ui/home/Banner";
 import Contributers from "@/components/ui/home/Contributers";
 import Footer from "@/components/ui/footer/footer";
+import Sponsors from "@/components/ui/home/Sponsors";
 
 const dataContributers = [
   {
     quote: "Backend Developer | NodeJS, Java, Spring Boot, RESTful APIs, Docker",
     name: "Urooz Ahmad",
     designation: "Technical Lead, ISTE HIT",
-    src: "https://media.licdn.com/dms/image/v2/C5603AQHvo0D1uB5qxQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1664129380158?e=1746662400&v=beta&t=Ex_SBvj8_UWHhPMXRrXOyA4ANEQLvEKhYjFQy7aMbys",
+    src: "https://media.licdn.com/dms/image/v2/D5603AQGVPpENlP2FBA/profile-displayphoto-shrink_400_400/B56ZXJLw.mGsAk-/0/1742837060354?e=1749081600&v=beta&t=Oy-pqlaClGY7RAzH7Q0Vqjw7X8BleIIW26ucAPQy3Y0",
   },
   {
     quote: "Building Pegman | Kubernetes | Spring Boot | Grpc | Node.js",
@@ -51,6 +51,7 @@ export default function Hero() {
         <Spotlight />
       </div>
       <HeroSection />
+      <Sponsors />
       <Banner />
       <div id="recent-events" className="relative">
         <RecentEvent />
@@ -65,7 +66,7 @@ export default function Hero() {
         <Explore  />
         <Guest />
         <Contributers testimonials={dataContributers} />
-        <Message />
+        {/* <Message /> */}
         <Footer />
       </div>
     </div>

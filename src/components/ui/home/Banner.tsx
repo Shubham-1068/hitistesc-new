@@ -9,11 +9,6 @@ const events = [
       highlight: true
     },
     { 
-      description: 'AI Odyssey Classes', 
-      icon: <Calendar className="text-cyan-300" size={20} />,
-      highlight: false
-    },
-    { 
       description: 'ISTE Annual Conversation-2025', 
       icon: <Star className="text-amber-300" size={20} />,
       highlight: true
