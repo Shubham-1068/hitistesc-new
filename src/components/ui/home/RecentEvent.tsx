@@ -2,43 +2,44 @@ import React from 'react';
 import { Rocket, Calendar, ArrowRight } from 'lucide-react';
 
 import IpadScroll from '@/components/IpadScroll';
+import Link from 'next/link';
 
 function App() {
   const events = [
     {
       id: 1,
-      title: "Annual Hackathon 2025",
-      date: "March 15-17, 2025",
-      image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      description: "Join us for 48 hours of coding, innovation, and fun!"
+      title: "Annual Convention 2025",
+      date: "April 10, 2025",
+      description: "Get ready for an exciting journey with ISTE - HIT Student's Chapter! Join us on 10th April at 1:00 PM in SN Bose Auditorium for our Annual Convention — a celebration of technology, innovation, and excellence.",
+      image: "https://res.cloudinary.com/db1sduyls/image/upload/v1743836720/AC_p1e35i.jpg"
     },
     {
       id: 2,
-      title: "Tech Talk Series",
-      date: "April 5, 2025",
-      image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      description: "Learn from industry experts about the latest tech trends."
+      title: "National Level Hackathon",
+      date: "April 11, 2025",
+      description: "Ready to turn your ideas into reality with ISTE HIT SC? Join IDEATHON — where innovation meets insight. Take the leap and bring your boldest ideas to life!",
+      image: "https://res.cloudinary.com/db1sduyls/image/upload/v1743836926/Ideathon_buucrz.jpg"
     },
     {
       id: 3,
-      title: "Networking Mixer",
+      title: "Alumni Connect",
       date: "May 12, 2025",
-      image: "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      image: "https://res.cloudinary.com/dds4wowea/image/upload/v1739424323/Screenshot_20250213_105424_Instagram_wqo5xr.jpg",
       description: "Connect with professionals and expand your network."
     },
     {
       id: 4,
-      title: "Summer Code Camp",
+      title: "Quest for Enigma",
       date: "June 20-25, 2025",
-      image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      description: "A week-long immersive coding experience for all skill levels."
+      image: "https://res.cloudinary.com/dds4wowea/image/upload/v1735397965/IMG_6073_fgnwsz.jpg",
+      description: "A fantastic event that tested knowledge, boosted problem-solving skills, and kept the excitement high!"
     },
     {
       id: 5,
-      title: "AI Workshop",
+      title: "Web D Explore",
       date: "July 8, 2025",
-      image: "https://images.unsplash.com/photo-1501854140801-50d01698950b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      description: "Hands-on workshop exploring the latest in artificial intelligence."
+      image: "https://res.cloudinary.com/dds4wowea/image/upload/v1739639580/webD_mhtpwf.jpg",
+      description: "A perfect blend of learning, hands-on experience, and skill-building for future tech enthusiasts!"
     }
   ];
 
@@ -70,18 +71,18 @@ function App() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent rounded-lg"></div>
                     <div className="absolute bottom-0 left-0 p-4 w-full">
                       <div className="flex items-center text-blue-300 mb-1">
-                        <Calendar className="w-4 h-4 mr-2" />
-                        <span className="text-sm">{event.date}</span>
+                        {/* <Calendar className="w-4 h-4 mr-2" />
+                        <span className="text-sm">{event.date}</span> */}
                       </div>
                       <h3 className="text-xl font-bold text-white mb-1">{event.title}</h3>
                       <p className="text-sm text-gray-300 mb-3">{event.description}</p>
-                      <a 
-                        href="#" 
-                        className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors"
+                      <Link
+                        href={'/events'}
+                        className="cursor-pointer inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors"
                       >
                         <span className="mr-1">Know More</span>
                         <ArrowRight className="w-4 h-4" />
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -98,18 +99,18 @@ function App() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent rounded-lg"></div>
                     <div className="absolute bottom-0 left-0 p-4 w-full">
                       <div className="flex items-center text-blue-300 mb-1">
-                        <Calendar className="w-4 h-4 mr-2" />
-                        <span className="text-sm">{event.date}</span>
+                        {/* <Calendar className="w-4 h-4 mr-2" /> */}
+                        {/* <span className="text-sm">{event.date}</span> */}
                       </div>
                       <h3 className="text-xl font-bold text-white mb-1">{event.title}</h3>
                       <p className="text-sm text-gray-300 mb-3">{event.description}</p>
-                      <a 
-                        href="#" 
-                        className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors"
+                      <Link
+                        href={'/events'} 
+                        className="cursor-pointer inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors"
                       >
                         <span className="mr-1">Know More</span>
                         <ArrowRight className="w-4 h-4" />
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>

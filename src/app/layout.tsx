@@ -6,6 +6,9 @@ import { Analytics } from '@vercel/analytics/react';
 export const metadata: Metadata = {
   title: "ISTE HIT",
   description: "Student Chapter HIT ISTE",
+  icons: {
+    icon: '../../public/Iste.png',
+  },
 };
 
 

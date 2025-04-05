@@ -1,4 +1,4 @@
-const SCRIPT_URL = "https://script.googleusercontent.com/macros/echo?user_content_key=AehSKLiKOr_5HekyQouj2ZMAbeuwCULwLJ2ZfGIORJejYLwDQwt6T4q0fhfL0O1WDrjleNNvbIyh816DoEL-0dZv5miRId8dwMUaEJXJ8iGoXk91L2E2WDLEJC-6t83Sc_K3vdPFXM33QdlxokvAcyW30DraLr7vsCJ8nx4B48ASMND8Aco_R7TgKgNvSUZooXcSEQ0RfdRQeuZkjiiAS1fOoIbiITRAbbW_oHW1J86_s9TNDbjS9BtTf_HaMnOVEumpIyUXWTJEaCuwwxfSodZZBPyBRQRUic1tovtS84QU&lib=MOpcFF-xq-2OIsK3Z6Wvnaq13UpjZ4oie";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyclXq_8YbOW7amK-lX-7xC7EaIizEZYnT6YXvPB2KLYIrvR_KvRPEorX_l2f6uchdTeg/exec";
 
 export async function fetchAlbums() {
   try {

@@ -56,7 +56,7 @@ const Navbar: React.FC = () => {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className={`fixed top-0 left-0 right-0 z-50 mx-auto lg:mt-4 mt-2 max-w-[95%] sm:max-w-[90%] md:max-w-[85%] lg:max-w-[80%] xl:max-w-[75%] transition-all duration-500 ${
+        className={`fixed top-0 left-0 right-0 z-40 mx-auto lg:mt-4 mt-2 max-w-[95%] sm:max-w-[90%] md:max-w-[85%] lg:max-w-[80%] xl:max-w-[75%] transition-all duration-500 ${
           scrolled 
         ? "bg-black/40 backdrop-blur-xl shadow-[0_4px_16px_0_rgba(220,255,183,0.1)]" 
         : "bg-black/20 backdrop-blur-xl"
