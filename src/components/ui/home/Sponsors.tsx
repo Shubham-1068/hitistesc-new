@@ -4,7 +4,7 @@ import { Award, X, ExternalLink } from "lucide-react";
 
 interface Sponsor {
   name: string;
-  category: "Gold" | "Silver" | "Bronze";
+  category: "Gold" | "Silver" | "Others";
   description: string;
   logoUrl?: string;
   website?: string;
@@ -49,7 +49,7 @@ const sponsors: Sponsor[] = [
   },
   {
     name: "ARDENT Computech",
-    category: "Bronze",
+    category: "Others",
     description:
       "Ardent Computech, founded in 2002 in Kolkata, offers IT training, internships, and software development services. They specialize in areas like data science, cybersecurity, and RDBMS to bridge the academia-industry gap.",
     website: "https://www.ardentcollaborations.com/",
@@ -58,12 +58,39 @@ const sponsors: Sponsor[] = [
   },
   {
     name: "Turnpike Analyst",
-    category: "Bronze",
+    category: "Others",
     description:
       "TurnPikeAnalyst's JAMES WEBB SERVER enables secure, seamless ECM migrations, enhancing business processes and efficiency with innovative, industry-recognized AI solutions.",
     website: "https://www.turnpikeanalyst.com/",
     logoUrl:
       "https://res.cloudinary.com/db1sduyls/image/upload/v1743843506/TurnPikeAnalist_yhl0wp.png",
+  },
+  {
+    name: "Unstop",
+    category: "Others",
+    description:
+      "Explore opportunities from across the globe to grow, showcase skills, gain CV points & get hired by your dream company.",
+    website: "https://unstop.com/",
+    logoUrl:
+      "https://res.cloudinary.com/db1sduyls/image/upload/v1744187941/Unstop_mzcyhe.jpg",
+  },
+  {
+    name: "SecurIT360",
+    category: "Others",
+    description:
+      "SecurIT360, founded in 2009, is a growing Cybersecurity and Compliance firm with offices in Birmingham and Kansas City, led by David Forrestall (CISSP, CISA).",
+    website: "https://www.securit360.com/",
+    logoUrl:
+      "https://res.cloudinary.com/db1sduyls/image/upload/v1744188325/SecurIT360_uz8t9u.jpg",
+  },
+  {
+    name: "Jobcarr",
+    category: "Others",
+    description:
+      "We are your strategic partner in human capital. From talent acquisition to transformative training.",
+    website: "https://jobcarr.com/",
+    logoUrl:
+      "https://res.cloudinary.com/db1sduyls/image/upload/v1744188708/jobcarr-logo_txmyaa.png",
   },
 ];
 
@@ -85,7 +112,7 @@ function App() {
       gradient: "from-gray-400/10 to-transparent",
       bgHover: "hover:bg-gray-400/5",
     },
-    Bronze: {
+    Others: {
       border: "border-amber-700/50",
       text: "text-amber-700",
       shadow: "shadow-amber-700/20",
@@ -95,19 +122,19 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white py-8 px-4 mt-10 mb-20">
-      <div className="max-w-5xl mx-auto w-[88%] md:w-[90%]">
+    <div className="min-h-screen bg-black text-white py-8 px-4 mt-8 mb-16">
+      <div className="max-w-4xl mx-auto w-[85%] md:w-[90%]">
         <motion.h1
           className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-400 mb-8 text-center"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          Our Sponsors
+          Our Industrial Partners
         </motion.h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {(["Gold", "Silver", "Bronze"] as const).map((category) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          {(["Gold", "Silver", "Others"] as const).map((category) => (
             <motion.div
               key={category}
               initial={{ opacity: 0, y: 20 }}
@@ -124,7 +151,7 @@ function App() {
                 </h2>
               </div>
 
-              <div className="grid gap-4">
+              <div className="grid gap-3 md:gap-4">
                 {sponsors
                   .filter((s) => s.category === category)
                   .map((sponsor) => (
@@ -133,7 +160,7 @@ function App() {
                       whileHover={{ scale: 1.03 }}
                       whileTap={{ scale: 0.98 }}
                       className={`
-                      p-3 rounded-lg cursor-pointer
+                      p-2 rounded-lg cursor-pointer
                       bg-gradient-to-b ${categoryStyles[category].gradient}
                       border ${categoryStyles[category].border}
                       ${categoryStyles[category].bgHover}
@@ -146,7 +173,7 @@ function App() {
                           <img
                             src={sponsor.logoUrl}
                             alt={`${sponsor.name} logo`}
-                            className="max-w-[85%] object-contain cursor-pointer py-1 mt-1"
+                            className="max-w-[70%] object-contain cursor-pointer py-1"
                           />
                         ) : (
                           <span className="text-gray-600 text-xs">Logo</span>
@@ -199,18 +226,16 @@ function App() {
                 </div>
 
                 <h3
-                  className={`text-xl font-bold mb-1 ${
-                    categoryStyles[selectedSponsor.category].text
-                  }`}
+                  className={`text-xl font-bold mb-1 ${categoryStyles[selectedSponsor.category].text
+                    }`}
                 >
                   {selectedSponsor.name}
                 </h3>
 
                 <div className="flex items-center gap-1 mb-2">
                   <Award
-                    className={`w-4 h-4 ${
-                      categoryStyles[selectedSponsor.category].text
-                    }`}
+                    className={`w-4 h-4 ${categoryStyles[selectedSponsor.category].text
+                      }`}
                   />
                   <span className="text-md text-gray-300">
                     {selectedSponsor.category}

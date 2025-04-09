@@ -21,6 +21,12 @@ const dataContributers = [
     src: "https://media.licdn.com/dms/image/v2/D5603AQGVPpENlP2FBA/profile-displayphoto-shrink_400_400/B56ZXJLw.mGsAk-/0/1742837060354?e=1749081600&v=beta&t=Oy-pqlaClGY7RAzH7Q0Vqjw7X8BleIIW26ucAPQy3Y0",
   },
   {
+    quote: "Building Pegman | Kubernetes | Spring Boot | Grpc | Node.js",
+    name: "Abhishek Kumar Verma",
+    designation: "Technical Head, Project Maintainer ISTE HIT",
+    src: "https://media.licdn.com/dms/image/v2/D4E03AQEacusWy4tNyg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1713864732220?e=1749686400&v=beta&t=R-cGWQwlllTSIFN3Vsjm0kMsppOARH7sM35bh-jwzHE",
+  },
+  {
     quote: "Web Developer | Next.js | Node.js | Typescript | Java | Docker",
     name: "Shubham Raj",
     designation: "Technical Team Member, ISTE HIT",
@@ -46,6 +52,7 @@ export default function Hero() {
       </div>
       <HeroSection />
       <Sponsors />
+      <Guest />
       <Banner />
       <div id="recent-events" className="relative">
         <RecentEvent />
@@ -58,7 +65,6 @@ export default function Hero() {
         <About />
         <div className="" />
         <Explore  />
-        <Guest />
         <Contributers testimonials={dataContributers} />
         {/* <Message /> */}
         <Footer />
