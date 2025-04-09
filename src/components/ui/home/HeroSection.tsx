@@ -25,7 +25,7 @@ const events: Event[] = [
   },
   {
     id: 2,
-    title: "National Level Hackathon",
+    title: "National Level Ideathon",
     date: "April 11, 2025",
     description: "Ready to turn your ideas into reality with ISTE HIT SC? Join IDEATHON — where innovation meets insight. Take the leap and bring your boldest ideas to life!",
     image: "https://res.cloudinary.com/db1sduyls/image/upload/v1743836926/Ideathon_buucrz.jpg",

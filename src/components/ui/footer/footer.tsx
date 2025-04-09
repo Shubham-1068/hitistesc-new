@@ -101,6 +101,7 @@ const Footer: React.FC = () => {
               { path: "/events", label: "EVENTS" },
               { path: "/gallery", label: "MEMORIES" },
               { path: "/social", label: "SOCIAL" },
+              { path: "/about", label: "ABOUT" },
             ].map((item, index) => (
               <motion.li
                 key={index}

@@ -9,7 +9,12 @@ const events = [
       highlight: true
     },
     { 
-      description: 'ISTE Annual Conversation-2025', 
+      description: 'ISTE Annual Convention-2025', 
+      icon: <Star className="text-amber-300" size={20} />,
+      highlight: true
+    },
+    { 
+      description: 'National Seminar on : Emerging Trends in AI and Cyber Security', 
       icon: <Star className="text-amber-300" size={20} />,
       highlight: true
     },
