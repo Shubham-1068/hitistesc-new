@@ -210,7 +210,7 @@ const AboutUs = () => {
         <p className="text-slate-300 text-sm leading-relaxed">
           Haldia Institute of Technology<br />
           Purba Medinipur, Haldia<br />
-          West Bengal-721302
+          West Bengal-721657
         </p>
       </motion.div>
 

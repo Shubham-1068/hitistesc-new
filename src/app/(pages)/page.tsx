@@ -51,8 +51,8 @@ export default function Hero() {
         <Spotlight />
       </div>
       <HeroSection />
-      <Sponsors />
-      <Guest />
+      {/* <Sponsors /> */}
+      {/* <Guest /> */}
       <Banner />
       <div id="recent-events" className="relative">
         <RecentEvent />

@@ -4,20 +4,10 @@ import { Calendar, Star, Sparkles } from 'lucide-react';
 
 const events = [
     { 
-      description: 'National Level IDEATHON !', 
+      description: 'ExploitX !', 
       icon: <Sparkles className="text-yellow-300" size={20} />,
       highlight: true
-    },
-    { 
-      description: 'ISTE Annual Convention-2025', 
-      icon: <Star className="text-amber-300" size={20} />,
-      highlight: true
-    },
-    { 
-      description: 'National Seminar on : Emerging Trends in AI and Cyber Security', 
-      icon: <Star className="text-amber-300" size={20} />,
-      highlight: true
-    },
+    }
 ];
 
 const Banner: React.FC = () => {

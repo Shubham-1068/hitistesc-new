@@ -128,7 +128,7 @@ const Footer: React.FC = () => {
           </h3>
           <ul className="space-y-4">
             {[
-              { icon: MapPin, text: "Haldia Institute of Technology, Purba Medinipur, Haldia, West Bengal-721302" },
+              { icon: MapPin, text: "Haldia Institute of Technology, Purba Medinipur, Haldia, West Bengal-721657" },
               { icon: Phone, text: "90027-80765" },
               { icon: Mail, text: "hitiste.studentchapter@gmail.com" },
             ].map((contact, index) => (
