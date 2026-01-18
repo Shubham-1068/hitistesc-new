@@ -100,28 +100,28 @@ const Hero: React.FC = () => {
           className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-400"
           variants={itemVariants}
         >
-          Exploit <span className="text-[#DCFFB7]">X</span> <br />
+          Open Source <span className="text-[#DCFFB7]">101</span> <br />
         </motion.h1>
 
         <motion.p
           className="text-md mb-8 max-w-lg bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-200 font-semibold"
           variants={itemVariants}
         >
-          Bootcamp & CTF, a perfect blend of hands on training and thrilling cybersecurity challenges!
+          Open Source 101 isn’t just an event—it’s your gateway into the world of real collaboration and innovation.
         </motion.p>
 
         <motion.div
           className="flex flex-wrap gap-4"
           variants={itemVariants}
         >
-          <motion.button
-            className="md:px-6 px-5 md:py-3 py-2 bg-white text-black font-semibold rounded-full hover:bg-opacity-90 transition-colors"
-            variants={buttonVariants}
-            whileHover="hover"
-            onClick={() => window.open("https://docs.google.com/forms/d/e/1FAIpQLSdkAqRlJ4rFSOFZZdyJlKIvM3XKqkuBbBzgYlbAFulWK3YdVQ/viewform", "_blank")}
-          >
-            Register Now
-          </motion.button>
+          <Link href="/opensource101">
+            <motion.button
+              className="bg-[#DCFFB7] text-black py-2 px-4 rounded-full hover:scale-105 transition duration-300 ease-in-out font-semibold"
+              variants={buttonVariants}
+            >
+              Register Now
+            </motion.button>
+          </Link>
  
         </motion.div>
       </motion.div>
@@ -192,7 +192,7 @@ const Hero: React.FC = () => {
               onClick={() => setIsImagePopup(true)}
             >
               <img
-                src={"https://res.cloudinary.com/db1sduyls/image/upload/v1746033741/ExploitX_xo6bhr.jpg"}
+                src={"https://res.cloudinary.com/db1sduyls/image/upload/v1768674217/opensource101_rtouui.png"}
                 alt="Promotion"
                 className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
               />
@@ -236,7 +236,7 @@ const Hero: React.FC = () => {
 
               <div className="overflow-auto max-h-[80vh] p-2 flex items-center justify-center">
                 <img
-                  src={"https://res.cloudinary.com/db1sduyls/image/upload/v1746033741/ExploitX_xo6bhr.jpg"}
+                  src={"https://res.cloudinary.com/db1sduyls/image/upload/v1768674217/opensource101_rtouui.png"}
                   alt="Promotion"
                   className="max-w-full max-h-full object-contain rounded-lg"
                 />
@@ -244,12 +244,15 @@ const Hero: React.FC = () => {
 
               {/* Mobile-friendly close button at bottom */}
               <div className="sm:hidden flex justify-center mt-4 mb-4">
-                <button
-                  className="bg-white text-black px-4 py-2 rounded-full text-sm font-semibold"
-                  onClick={() => window.open("https://docs.google.com/forms/d/e/1FAIpQLScHi9ybkWZjvl8XleTmODsaUFr_clmiqgF7RW6_Bardz8LhAg/viewform", "_blank")}
-                >
-                  Register Now!
-                </button>
+                <Link href="/opensource101">
+                  <motion.button
+                    className="bg-white text-black rounded-full p-3 z-50 shadow-lg font-semibold"
+                    whileHover={{ scale: 1.1 }}
+                    onClick={() => setIsImagePopup(false)}
+                  >
+                    Register Now!
+                  </motion.button>
+                </Link>
               </div>
             </motion.div>
           </motion.div>

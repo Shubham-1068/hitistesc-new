@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Users, Target, Award, Lightbulb, Rocket, Globe, Twitter, Linkedin, Github } from 'lucide-react';
-import Logo from '../../../../public/Iste.png';
 
 interface TeamMember {
   id: number;
@@ -51,7 +50,7 @@ const AboutUs: React.FC = () => {
         viewport={{ once: true, amount: 0.2 }}
       >
         <div className="w-full flex justify-center items-center mb-10">
-          <img src={Logo.src} alt="Logo-iste-main" className='h-[180px] md:h-[220px] w-[180px] md:w-[220px]' />
+          <img src="/Iste.png" alt="Logo-iste-main" className='h-[180px] md:h-[220px] w-[180px] md:w-[220px]' />
         </div>
         <motion.div className="text-center mb-16" variants={itemVariants}>
           <span className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-400">Who We Are?</span>
