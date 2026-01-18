@@ -122,6 +122,14 @@ const Hero: React.FC = () => {
               Register Now
             </motion.button>
           </Link>
+          <Link href="/opensource101/projects">
+            <motion.button
+              className="bg-white text-black py-2 px-4 rounded-full hover:scale-105 transition duration-300 ease-in-out font-semibold"
+              variants={buttonVariants}
+            >
+              Explore Projects
+            </motion.button>
+          </Link>
  
         </motion.div>
       </motion.div>
