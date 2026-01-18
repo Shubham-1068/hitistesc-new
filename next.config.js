@@ -5,6 +5,6 @@ module.exports = nextConfig
 
 module.exports = {
     images: {
-      domains: ['assets.aceternity.com'],
+      domains: ['assets.aceternity.com', 'res.cloudinary.com'],
     },
   };

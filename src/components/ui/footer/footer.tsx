@@ -16,7 +16,6 @@ import {
   Code,
   Cpu,
 } from "lucide-react"
-import Logo from "@/../../public/Iste.png"
 import Link from "next/link"
 
 
@@ -64,7 +63,7 @@ const Footer: React.FC = () => {
         <motion.div variants={itemVariants} className="space-y-6">
           <div className="flex items-center">
             <div className="relative">
-              <img src={Logo.src} alt="Iste-Logo" className="w-14 h-14 rounded-full" />
+              <img src="/Iste.png" alt="Iste-Logo" className="w-14 h-14 rounded-full" />
               <div className="absolute inset-0 bg-primary/20 blur-md rounded-full"></div>
             </div>
             <span className="text-2xl font-bold ml-2 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300 cursor-default">
